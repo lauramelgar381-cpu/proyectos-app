@@ -1,0 +1,25 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo-datos:/data/db
+    
+    ports:
+      - "127.0.0.1:27018:27017"
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    env_file: backend/.env
+    environment:
+      
+      MONGODB_URI: mongodb://mongo:27017/proyectos_app
+      PORT: 3000
+    ports:
+      - "3000:3000"
+
+volumes:
+  mongo-datos:
