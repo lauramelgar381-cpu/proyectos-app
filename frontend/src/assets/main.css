@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* En modo oscuro, el panel lateral usa un tono más oscuro que las tarjetas */
+[data-theme='portafolio-oscuro'] .sidebar-panel {
+  background-color: #111827;
+}
+
+/* Los campos que el navegador autocompleta usan el color del tema, igual que los demás */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px hsl(var(--b1)) inset;
+  -webkit-text-fill-color: hsl(var(--bc));
+}

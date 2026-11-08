@@ -152,12 +152,21 @@ router.get('/estadisticas', async (req, res) => {
     { $project: { _id: 0, nombre: '$_id', total: 1 } },
   ])
 
+  // Tecnologías de los proyectos destacados: es lo que muestra el perfil público
+  const destacadas = await Proyecto.aggregate([
+    { $match: { destacado: true } },
+    { $unwind: '$tecnologias' },
+    { $group: { _id: '$tecnologias', total: { $sum: 1 } } },
+    { $sort: { total: -1, _id: 1 } },
+    { $project: { _id: 0, nombre: '$_id', total: 1 } },
+  ])
+
   res.json({
     proyectos: totales?.proyectos ?? 0,
     archivos: totales?.archivos ?? 0,
     tamanoTotal: totales?.tamanoTotal ?? 0,
     tecnologias: tecnologias.length,
-    topTecnologias: tecnologias.slice(0, 8),
+    topTecnologias: destacadas.slice(0, 6),
   })
 })
 

@@ -57,7 +57,7 @@ onMounted(async () => {
     </div>
 
     <template v-else-if="perfil">
-      <section class="hero rounded-box bg-base-200 py-10">
+      <section class="hero rounded-box bg-gradient-to-br from-primary/15 via-base-200 to-secondary/15 border border-base-300 py-12 shadow-sm">
         <div class="hero-content flex-col md:flex-row gap-8 max-w-4xl">
           <div class="avatar shrink-0">
             <div class="w-40 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 bg-base-100">
@@ -115,7 +115,7 @@ onMounted(async () => {
 
         <div v-if="estadisticas.topTecnologias.length" class="card bg-base-100 border border-base-300">
           <div class="card-body">
-            <h2 class="card-title text-lg">Tecnologías más usadas</h2>
+            <h2 class="card-title text-lg">Tecnologías de proyectos destacados</h2>
             <div v-for="tecnologia in estadisticas.topTecnologias" :key="tecnologia.nombre" class="space-y-1">
               <div class="flex justify-between text-sm">
                 <span>{{ tecnologia.nombre }}</span>

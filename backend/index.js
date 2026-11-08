@@ -8,6 +8,7 @@ import multer from 'multer'
 import authRouter from './routes/auth.js'
 import perfilRouter from './routes/perfil.js'
 import proyectosRouter from './routes/proyectos.js'
+import tareasRouter from './routes/tareas.js'
 
 // Lee el .env de esta carpeta, sin importar desde dónde se ejecute el comando
 config({ path: fileURLToPath(new URL('.env', import.meta.url)) })
@@ -32,6 +33,7 @@ app.get('/api/salud', (req, res) => {
 app.use('/api/auth', authRouter)
 app.use('/api/perfil', perfilRouter)
 app.use('/api/proyectos', proyectosRouter)
+app.use('/api/tareas', tareasRouter)
 
 // En producción, el mismo servidor entrega la interfaz compilada
 const CARPETA_FRONTEND = process.env.FRONTEND_DIST || fileURLToPath(new URL('../frontend/dist', import.meta.url))

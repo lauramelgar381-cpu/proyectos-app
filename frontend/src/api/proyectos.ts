@@ -83,7 +83,15 @@ export interface Tarea {
   completada: boolean
 }
 
+export interface TareaPendiente {
+  _id: string
+  titulo: string
+  proyecto: string
+  proyectoNombre: string
+}
+
 export const api = {
+  tareasPendientes: () => peticion<TareaPendiente[]>('/api/tareas/pendientes'),
   listar: (params: ParamsListado = {}) => peticion<Proyecto[]>(`${BASE}${queryString(params)}`),
   tareas: (id: string) => peticion<Tarea[]>(`${BASE}/${id}/tareas`),
   crearTarea: (id: string, titulo: string) =>

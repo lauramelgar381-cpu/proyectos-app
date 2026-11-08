@@ -7,13 +7,15 @@ defineProps<{ proyecto: Proyecto }>()
 </script>
 
 <template>
-  <article class="card bg-base-100 shadow-md border border-base-300 h-full">
+  <article
+    class="card group h-full overflow-hidden bg-base-100 border border-base-300 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+  >
     <figure class="aspect-video w-full overflow-hidden bg-base-200 bg-gradient-to-br from-primary/30 to-secondary/30">
       <img
         v-if="proyecto.tienePortada || proyecto.imagenPortada"
         :src="proyecto.tienePortada ? urlPortada(proyecto) : proyecto.imagenPortada"
         :alt="proyecto.nombre"
-        class="h-full w-full object-contain"
+        class="h-full w-full object-contain transition duration-500 group-hover:scale-105"
         loading="lazy"
       />
       <span v-else class="text-5xl font-bold opacity-40">
@@ -23,7 +25,7 @@ defineProps<{ proyecto: Proyecto }>()
 
     <div class="card-body">
       <div class="flex items-start justify-between gap-2">
-        <h3 class="card-title text-lg">{{ proyecto.nombre }}</h3>
+        <h3 class="card-title text-lg transition-colors group-hover:text-primary">{{ proyecto.nombre }}</h3>
         <span
           class="badge badge-sm shrink-0"
           :class="proyecto.estado === 'terminado' ? 'badge-success' : 'badge-warning'"
