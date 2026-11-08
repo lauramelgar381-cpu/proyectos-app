@@ -28,7 +28,7 @@ Portafolio personal para publicar mis proyectos de programación. Tiene un sitio
 | Despliegue local | Docker Compose |
 
 # Estructura del proyecto
-
+```
 proyectos-app/
 ├── backend/            # API REST con Express y MongoDB
 │   ├── models/         # Proyecto, Archivo, Tarea, Perfil
@@ -48,8 +48,7 @@ proyectos-app/
 ├── Dockerfile          # Imagen de producción
 ├── docker-compose.yml  # Aplicación + MongoDB
 └── README.md
-
-
+```
 La documentación detallada de la API y de MongoDB Compass está en [backend/README.md](backend/README.md).
 
 # Requisitos
@@ -127,7 +126,7 @@ Para entrar al panel, pulsa Iniciar sesión en el sitio, usa el usuario y la con
 
 - Solo existe un usuario, el administrador. La contraseña se guarda como hash bcrypt y nunca en texto plano.
 - Las sesiones usan un token JWT que dura 8 horas.
-- Los archivos `.env`, las copias de seguridad y `node_modules` no se suben a git.
+- Los archivos '.env', las copias de seguridad y 'node_modules' no se suben a git.
 - El README de cada proyecto se muestra con un filtro que elimina código peligroso.
 
 # Solución de problemas
